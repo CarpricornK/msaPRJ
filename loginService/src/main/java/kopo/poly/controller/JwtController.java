@@ -300,4 +300,11 @@ public class JwtController {
 
     }
 
+    @RequestMapping(value = "/index")
+    public String index() {
+        log.info(this.getClass().getName() + ".index ok!");
+
+        return "/index";
+    }
+
 }

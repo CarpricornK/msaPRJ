@@ -79,7 +79,7 @@
 <h2>회원 가입하기</h2>
 <hr/>
 <br/>
-<form name="f" method="post" action="/user/insertUserInfo" onsubmit="return doRegUserCheck(this);">
+<form name="f" method="post" action="/jwt/insertUserInfo" onsubmit="return doRegUserCheck(this);">
 
     <div class="divTable minimalistBlack">
         <div class="divTableBody">
