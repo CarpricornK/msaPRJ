@@ -16,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseCookie;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -135,8 +136,9 @@ public class JwtController {
             pDTO.setUserName(user_name);
 
             //비밀번호는 절대로 복호화되지 않도록 해시 알고리즘으로 암호화함
-            pDTO.setPassword(EncryptUtil.encHashSHA256(password));
-
+//            pDTO.setPassword(EncryptUtil.encHashSHA256(password));
+            pDTO.setPassword(BCrypt.hashpw(password, BCrypt.gensalt()));
+//            System.out.println("BCrypt : " + BCrypt.hashpw(password, BCrypt.gensalt()));
             //민감 정보인 이메일은 AES128-CBC로 암호화함
             pDTO.setEmail(EncryptUtil.encAES128CBC(email));
             pDTO.setAddr1(addr1);
@@ -298,13 +300,6 @@ public class JwtController {
 
         return "/jwt/LoginFail";
 
-    }
-
-    @RequestMapping(value = "/index")
-    public String index() {
-        log.info(this.getClass().getName() + ".index ok!");
-
-        return "/index";
     }
 
 }
