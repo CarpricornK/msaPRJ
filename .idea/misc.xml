@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/apiGateway" />
     <file type="web" url="file://$PROJECT_DIR$/eurekaServer" />
     <file type="web" url="file://$PROJECT_DIR$/loginService" />
     <file type="web" url="file://$PROJECT_DIR$/noticeService" />

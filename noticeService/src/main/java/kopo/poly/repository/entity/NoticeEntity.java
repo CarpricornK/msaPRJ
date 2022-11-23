@@ -1,9 +1,6 @@
 package kopo.poly.repository.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -12,7 +9,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "NOTICE2")
+@Table(name = "NOTICE3")
 @DynamicInsert
 @DynamicUpdate
 @Builder
@@ -23,35 +20,39 @@ public class NoticeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "notice_seq")
     private Long noticeSeq;
 
-    @Column(nullable = false, name="title")
+    @NonNull
+    @Column(name = "title", length = 500, nullable = false)
     private String title;
 
-    @Column(nullable = false, name="noticeYn")
+    @NonNull
+    @Column(name = "notice_yn", length = 1, nullable = false)
     private String noticeYn;
 
-    @Column(nullable = false, name="contents")
+    @NonNull
+    @Column(name = "contents", nullable = false)
     private String contents;
 
-    @Column(nullable = false, name="userId")
+    @NonNull
+    @Column(name = "user_id", nullable = false)
     private String userId;
 
-    @Column(nullable = false, name="readCnt")
+    @Column(name = "read_cnt", nullable = false)
     private Long readCnt;
 
-    @Column(nullable = false, name="regId")
+    @Column(name = "reg_id", updatable = false)
     private String regId;
 
-    @Column(nullable = false, name="regDt")
+    @Column(name = "reg_dt", updatable = false)
     private String regDt;
 
-    @Column(nullable = false, name="chgId")
+    @Column(name = "chg_id")
     private String chgId;
 
-    @Column(nullable = false, name="chgDt")
+    @Column(name = "chg_dt")
     private String chgDt;
-
 
 
 }

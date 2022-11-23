@@ -68,7 +68,7 @@ public class UserInfoService implements IUserInfoService {
         String email = CmmUtil.nvl(pDTO.getEmail()); // 이메일
         String addr1 = CmmUtil.nvl(pDTO.getAddr1()); // 주소
         String addr2 = CmmUtil.nvl(pDTO.getAddr2()); // 상세주소
-        String roles = CmmUtil.nvl(pDTO.getRoles()); // 권한
+        String roles = "ROLE_USER"; // 권한
 
         log.info("userId : " + userId);
         log.info("userName : " + userName);
